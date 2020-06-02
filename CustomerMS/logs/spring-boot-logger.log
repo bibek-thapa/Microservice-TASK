@@ -57,3 +57,29 @@
 2020-06-01 19:05:40,810 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-2] Before Executing CustomerController with method getById
 2020-06-01 19:05:40,810 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-2] Before Executing CustomerServiceImpl with method getById
 2020-06-01 19:05:40,813 ERROR com.demo.CustomerMS.serviceimpl.CustomerServiceImpl [http-nio-8083-exec-2] Customer with id {} 6 is not found
+2020-06-01 20:19:22,608 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 20:19:26,927 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 5.819 seconds (JVM running for 6.804)
+2020-06-01 20:19:46,943 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-1] Before Executing CustomerController with method getById
+2020-06-01 20:19:46,956 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-1] Before Executing CustomerServiceImpl with method getById
+2020-06-01 20:19:46,986 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-1] After Executing CustomerServiceImpl with method getById
+2020-06-01 20:19:46,987 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-1] After Executing CustomerController with method getById
+2020-06-01 20:21:51,347 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-8] Before Executing CustomerController with method getById
+2020-06-01 20:21:51,348 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-8] Before Executing CustomerServiceImpl with method getById
+2020-06-01 20:21:51,351 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-8] After Executing CustomerServiceImpl with method getById
+2020-06-01 20:21:51,352 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8082-exec-8] After Executing CustomerController with method getById
+2020-06-01 20:34:34,236 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 20:34:47,752 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 18.381 seconds (JVM running for 19.558)
+2020-06-01 20:38:05,973 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 20:38:10,987 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 7.46 seconds (JVM running for 8.429)
+2020-06-01 20:42:40,687 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 20:42:45,778 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 10.473 seconds (JVM running for 11.317)
+2020-06-01 20:45:14,879 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 20:45:19,866 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 6.35 seconds (JVM running for 7.158)
+2020-06-01 21:07:53,318 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 21:07:58,462 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 6.132 seconds (JVM running for 7.034)
+2020-06-01 21:12:39,502 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 21:12:44,753 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 8.262 seconds (JVM running for 9.23)
+2020-06-01 21:14:13,358 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 21:14:19,890 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 9.647 seconds (JVM running for 10.957)
+2020-06-01 21:16:06,376 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-01 21:16:12,929 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 8.816 seconds (JVM running for 9.967)
