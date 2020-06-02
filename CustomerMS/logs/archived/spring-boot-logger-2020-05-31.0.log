@@ -1,0 +1,12 @@
+2020-05-31 18:54:52,472 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-05-31 18:54:56,408 INFO org.springframework.boot.StartupInfoLogger [main] Started CustomerMicroserviceApplication in 4.86 seconds (JVM running for 5.891)
+2020-05-31 18:55:04,903 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-1] Before Executing CustomerController with method getById
+2020-05-31 18:55:04,912 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-1] Before Executing CustomerServiceImpl with method getById
+2020-05-31 18:55:05,013 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-1] After Executing CustomerServiceImpl with method getById
+2020-05-31 18:55:05,013 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-1] After Executing CustomerController with method getById
+2020-05-31 18:55:21,309 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-4] Before Executing CustomerController with method getById
+2020-05-31 18:55:21,309 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-4] Before Executing CustomerServiceImpl with method getById
+2020-05-31 18:55:21,312 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-4] After Executing CustomerServiceImpl with method getById
+2020-05-31 18:55:21,313 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-4] After Executing CustomerController with method getById
+2020-05-31 18:55:33,124 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-6] Before Executing CustomerController with method getById
+2020-05-31 18:55:33,125 INFO com.demo.CustomerMS.aop.LoggingAspect [http-nio-8083-exec-6] Before Executing CustomerServiceImpl with method getById
