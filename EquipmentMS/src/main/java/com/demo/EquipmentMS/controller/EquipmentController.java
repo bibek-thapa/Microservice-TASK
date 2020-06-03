@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.EquipmentMS.entity.Equipment;
 import com.demo.EquipmentMS.serviceimpl.EquipmentServiceImpl;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 
 @RestController
 @RequestMapping("/api/equipments")
@@ -22,11 +24,20 @@ public class EquipmentController {
 	@Autowired
 	private EquipmentServiceImpl equipmentService;
 	
+	@HystrixCommand(fallbackMethod = "fallBackForEquipmentByCustomerID")
 	@GetMapping("/{customerId}")
 	public List<String> getAllequipmentNameByCustomerId(@PathVariable("customerId")Long customerId)
 	{
 		logger.info("Getting the all equipment names by customer with id{}", customerId);
+		System.out.println("In Profile");
 		return equipmentService.getEquipmentNamesByCustomerId(customerId);
+	}
+	
+	
+	public String fallBackForEquipmentByCustomerID(Long customerId) 
+	{
+		System.out.println("In fallback");
+		return "This site is down for while";
 	}
 	
 	@GetMapping("/all/{customerId}")

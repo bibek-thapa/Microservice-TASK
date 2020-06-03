@@ -15,16 +15,17 @@ public class LoggingAspect {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
   
-	@Around("execution(* com.demo.CustomerMS.serviceimpl..*(..)))")
+	@Around("execution(* com.demo.CustomerMS.serviceimpl..*(..))")
 	public Object profileAllServiceMethods(ProceedingJoinPoint joinPoint) throws Throwable 
 	{
 		Object retVal = null;
 		MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();
 		String className = methodSignature.getDeclaringType().getSimpleName();
 		String methodName = methodSignature.getName();
-		logger.info("Before Executing "+ className + " with method "+ methodName);
+		
+		logger.info("Entering  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
 		retVal = joinPoint.proceed();
-		logger.info("After Executing "+ className + " with method "+ methodName);
+		logger.info("Exiting  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
 		return retVal;
 		
 	}
@@ -36,9 +37,9 @@ public class LoggingAspect {
 		MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();
 		String className = methodSignature.getDeclaringType().getSimpleName();
 		String methodName = methodSignature.getName();
-		logger.info("Before Executing "+ className + " with method "+ methodName);
+		logger.info("Entering  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
 		retVal = joinPoint.proceed();
-		logger.info("After Executing "+ className + " with method "+ methodName);
+		logger.info("Exiting  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
 		return retVal;
 		
 	}
