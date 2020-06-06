@@ -24,7 +24,7 @@
                 <message/>
                 <loggerName/>
                 <threadName/>
-                <context/>
+<!--                 <context/> -->
                 <pattern>
                     <omitEmptyFields>true</omitEmptyFields>
                     <pattern>

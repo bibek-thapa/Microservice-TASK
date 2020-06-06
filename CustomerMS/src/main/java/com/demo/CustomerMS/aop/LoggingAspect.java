@@ -1,5 +1,7 @@
 package com.demo.CustomerMS.aop;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,6 +24,7 @@ public class LoggingAspect {
 		MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();
 		String className = methodSignature.getDeclaringType().getSimpleName();
 		String methodName = methodSignature.getName();
+		
 		
 		logger.info("Entering  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
 		retVal = joinPoint.proceed();
