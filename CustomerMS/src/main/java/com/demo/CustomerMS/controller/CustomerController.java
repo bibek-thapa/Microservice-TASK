@@ -1,9 +1,14 @@
 package com.demo.CustomerMS.controller;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +23,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class CustomerController {
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
-
+	@Value("${loggingfile}")
+	private String logDir;
 	
 	@Autowired
 	private ICustomerService customerService;
@@ -27,9 +33,10 @@ public class CustomerController {
 	@GetMapping("/{id}")
 	public Customer getById(@PathVariable("id")Long id) 
 	{
-		MDC.put("test", "I am test value");
+		
 		logger.info("In Profile");
 		
+	
 		return customerService.getById(id);
 		
 	}
