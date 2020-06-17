@@ -69,5 +69,9 @@
          <appender-ref ref="Console" />
     </logger>
     
+    <root level="debug">
+    <appender-ref ref="Console"/>
+    </root>
+    
     
 </configuration>

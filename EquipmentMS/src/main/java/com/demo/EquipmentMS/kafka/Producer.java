@@ -1,4 +1,4 @@
-package com.demo.CustomerMS.kafka;
+package com.demo.EquipmentMS.kafka;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.demo.CustomerMS.kafka.entity.Record;
+import com.demo.EquipmentMS.kafka.entity.Record;
 
 @Component
 public class Producer {

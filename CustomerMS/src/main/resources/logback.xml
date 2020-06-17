@@ -139,6 +139,11 @@
 		<appender-ref ref="Console" />
 		<appender-ref ref="SevereRollingFile" />
 	</logger>
+	
+	<root level="debug">
+	<appender-ref ref="Console"/>
+	
+	</root>
 
 
 </configuration>

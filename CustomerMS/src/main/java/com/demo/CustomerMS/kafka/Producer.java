@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.Scanner;
+import java.util.stream.Stream;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -33,6 +36,9 @@ public class Producer {
 
 	@Autowired
 	ILogRepository logRepository;
+	
+	private static int prevLinenumber=0;
+	
 
 	private KafkaProducer<String, String> createProducer() {
 
@@ -65,6 +71,7 @@ public class Producer {
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String st;
+		if(prevLinenumber == 0) {
 		while ((st = br.readLine()) != null) {
 
 			JSONObject jsonObject = (JSONObject) readJSON(st);
@@ -73,11 +80,30 @@ public class Producer {
 
 			}
 			String record = processJSON(jsonObject);
-			final ProducerRecord<String, String> Record = new ProducerRecord<String, String>("TestTopic", key, record);
-			testTopicProducer.send(Record);
+			System.out.println(record);
+			//final ProducerRecord<String, String> Record = new ProducerRecord<String, String>("TestTopic", key, record);
+			//testTopicProducer.send(Record);
+			prevLinenumber++;
 
 		}
+		}
+		else  {
+			
+			String line;
 
+			long lineCount = Files.lines(logFile).count();		
+			
+			
+			while(prevLinenumber<lineCount) 
+			{
+				
+				line = Files.readAllLines(logFile).get(prevLinenumber);
+				System.out.println(line);
+				prevLinenumber++;
+			}
+			
+			
+		}
 		// testTopicProducer.close();
 
 	}

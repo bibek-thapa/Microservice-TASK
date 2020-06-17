@@ -1,0 +1,2 @@
+A{"@timestamp":"2020-06-08T18:40:16.088Z","@version":"1","level":"INFO","message":"No active profile set, falling back to default profiles: default","logger_name":"com.demo.EquipmentMS.EquipmentMsApplication","thread_name":"main"}
+{"@timestamp":"2020-06-08T18:40:30.453Z","@version":"1","level":"INFO","message":"Started EquipmentMsApplication in 18.46 seconds (JVM running for 20.664)","logger_name":"com.demo.EquipmentMS.EquipmentMsApplication","thread_name":"main"}

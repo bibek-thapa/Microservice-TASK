@@ -1,5 +1,6 @@
 package com.demo.EquipmentMS.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -34,10 +35,10 @@ public class EquipmentController {
 	}
 	
 	
-	public String fallBackForEquipmentByCustomerID(Long customerId) 
+	public List<String> fallBackForEquipmentByCustomerID(Long customerId) 
 	{
 		System.out.println("In fallback");
-		return "This site is down for while";
+		return new ArrayList<String>();
 	}
 	
 	@GetMapping("/all/{customerId}")

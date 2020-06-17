@@ -1,4 +1,4 @@
-package com.demo.CustomerMS.kafka.entity;
+package com.demo.EquipmentMS.kafka.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
