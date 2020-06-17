@@ -1,4 +1,4 @@
-package com.demo.CustomerMS.kafka;
+package com.demo.ProfileService.kafka;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,8 +21,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.demo.CustomerMS.kafka.entity.Record;
-import com.demo.CustomerMS.repository.ILogRepository;
+import com.demo.ProfileService.kafka.entity.Record;
+import com.demo.ProfileService.repository.ILogRepository;
+
+
 
 @Component
 public class Producer {
@@ -121,8 +123,8 @@ public class Producer {
 		Record rec = new Record();
 		rec.setTime((String) obj.get("@timestamp"));
 		rec.setApplication_name((String) obj.get("application_name"));
-		rec.setTrace_id((String) obj.get("trace_id"));
-		rec.setSpan_id((String) obj.get("span_id"));
+		rec.setTraceId((String) obj.get("trace_id"));
+		rec.setSpanId((String) obj.get("span_id"));
 		rec.setParentSpanId((String) obj.get("parent_span_id"));
 		rec.setLevel((String) obj.get("level"));
 		rec.setRequest((String) obj.get("request"));
@@ -136,8 +138,8 @@ public class Producer {
 		Record rec = new Record();
 		rec.setTime((String) obj.get("@timestamp"));
 		rec.setApplication_name((String) obj.get("application_name"));
-		rec.setTrace_id((String) obj.get("trace_id"));
-		rec.setSpan_id((String) obj.get("span_id"));
+		rec.setTraceId((String) obj.get("trace_id"));
+		rec.setSpanId((String) obj.get("span_id"));
 		rec.setParentSpanId((String) obj.get("parent_span_id"));
 		rec.setLevel((String) obj.get("level"));
 		rec.setRequest((String) obj.get("request"));

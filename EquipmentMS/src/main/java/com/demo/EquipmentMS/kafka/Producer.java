@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -15,21 +16,30 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import com.demo.EquipmentMS.kafka.entity.Record;
+
+import com.demo.EquipmentMS.repository.ILogRepository;
+
+
 
 @Component
 public class Producer {
 
 	private final static String BOOTSTRAP_SERVERS = "localhost:9092";
-	
+
 	@Value("${loggingfile}")
 	private String logDir;
 
-	private  KafkaProducer<String, String> createProducer() {
+	@Autowired
+	ILogRepository logRepository;
+
+	private static int prevLinenumber = 0;
+
+	private KafkaProducer<String, String> createProducer() {
 
 		Properties props = new Properties();
 
@@ -43,43 +53,68 @@ public class Producer {
 
 	}
 
-	@Scheduled(cron="*/1 * * * * ?")
+	@Scheduled(cron = "*/1 * * * * ?")
 
 	public void produce() throws IOException, ParseException {
 		final KafkaProducer<String, String> testTopicProducer = createProducer();
 		// Scanner streamIndput = new Scanner(new File(args[0]));
-		
+		ProducerRecord<String, String> Record;
 
 		String key = "message";
 
 		Path logFilePath = Paths.get(logDir).toAbsolutePath().normalize();
 		Path logFile = logFilePath.resolve("spring-boot-logger.log");
 		File file = new File(logFile.toString());
-		
-	
-		
-		
+
 //		 File file = new File(
 //				"/home/lappy/Documents/workspace-spring-tool-suite-4-4.5.1.RELEASE/Microservices-Task/CustomerMS/logs/spring-boot-logger.log");
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String st;
-		while ((st = br.readLine()) != null) {
+		if (prevLinenumber == 0) {
+			while ((st = br.readLine()) != null) {
 
-			JSONObject jsonObject = (JSONObject) readJSON(st);
-			String record = processJSON(jsonObject);
-		
-			final ProducerRecord<String, String> Record = new ProducerRecord<String, String>("TestTopic", key, record);
-			testTopicProducer.send(Record);
+				JSONObject jsonObject = (JSONObject) readJSON(st);
+				if (jsonObject.containsKey("request") && jsonObject.containsKey("response")) {
+					logRepository.save(processJSONtoEntity(jsonObject));
+
+				}
+				String record = processJSON(jsonObject);
+				System.out.println(record);
+				Record = new ProducerRecord<String, String>("TestTopic", key, record);
+				testTopicProducer.send(Record);
+				prevLinenumber++;
+
+			}
+		} else {
+
+			String line;
+
+			long lineCount = Files.lines(logFile).count();
+
+			while (prevLinenumber < lineCount) {
+
+				line = Files.readAllLines(logFile).get(prevLinenumber);
+				JSONObject jsonObject = (JSONObject) readJSON(line);
+				if (jsonObject.containsKey("request") && jsonObject.containsKey("response")) {
+					logRepository.save(processJSONtoEntity(jsonObject));
+
+				}
+				String record = processJSON(jsonObject);
+				System.out.println(record);
+				Record = new ProducerRecord<String, String>("TestTopic", key, record);
+				testTopicProducer.send(Record);
+				System.out.println(line);
+				prevLinenumber++;
+
+			}
 
 		}
+		testTopicProducer.close();
 
-		//testTopicProducer.close();
-	
-		
 	}
 
-	public  Object readJSON(String str) throws ParseException {
+	public Object readJSON(String str) throws ParseException {
 		JSONParser jsonParser = new JSONParser();
 		return jsonParser.parse(str);
 	}
@@ -92,10 +127,25 @@ public class Producer {
 		rec.setSpan_id((String) obj.get("span_id"));
 		rec.setParentSpanId((String) obj.get("parent_span_id"));
 		rec.setLevel((String) obj.get("level"));
-		rec.setRequest((String)obj.get("request"));
-		rec.setResponse((String)obj.get("response"));
+		rec.setRequest((String) obj.get("request"));
+		rec.setResponse((String) obj.get("response"));
 
 		return rec.toString();
+
+	}
+
+	public Record processJSONtoEntity(JSONObject obj) {
+		Record rec = new Record();
+		rec.setTime((String) obj.get("@timestamp"));
+		rec.setApplication_name((String) obj.get("application_name"));
+		rec.setTrace_id((String) obj.get("trace_id"));
+		rec.setSpan_id((String) obj.get("span_id"));
+		rec.setParentSpanId((String) obj.get("parent_span_id"));
+		rec.setLevel((String) obj.get("level"));
+		rec.setRequest((String) obj.get("request"));
+		rec.setResponse((String) obj.get("response"));
+
+		return rec;
 
 	}
 

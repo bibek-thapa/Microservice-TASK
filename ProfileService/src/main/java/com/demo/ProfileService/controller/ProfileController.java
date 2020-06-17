@@ -1,4 +1,4 @@
-package com.demo.ProfileService.contoller;
+package com.demo.ProfileService.controller;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.demo.ProfileService.dto.CustomerDTO;
 import com.demo.ProfileService.dto.EquipmentDTO;
 import com.demo.ProfileService.dto.ProfileDTO;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 
 
@@ -22,10 +23,11 @@ public class ProfileController {
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	@HystrixCommand(fallbackMethod="getProfileFallback")
 	@GetMapping("{customerId}")
 	public ProfileDTO getProfile(@PathVariable("customerId") Long customerId) 
 	{
-		logger.info("Entering to /api/profiles/customerId");
+		
 		ProfileDTO profileDTO = new ProfileDTO();
 		RestTemplate template = new RestTemplate();
 		
@@ -37,6 +39,13 @@ public class ProfileController {
 		profileDTO.setEquimpment(equipmentDTO);
 		
 		return profileDTO;
+	}
+	
+	
+	public ProfileDTO getProfileFallback(Long customerId) 
+	{
+		logger.info("In fallback of Profile controller method");
+		return new ProfileDTO();
 	}
 
 }

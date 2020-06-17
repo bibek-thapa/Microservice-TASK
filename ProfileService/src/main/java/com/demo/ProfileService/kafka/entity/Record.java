@@ -1,4 +1,4 @@
-package com.demo.EquipmentMS.kafka.entity;
+package com.demo.ProfileService.kafka.entity;
 
 
 import javax.persistence.Column;
@@ -29,10 +29,10 @@ public class Record {
 	String application_name;
 	
 	@Column
-	String trace_id;
+	String traceId;
 	
 	@Column
-	String span_id;
+	String spanId;
 	
 	@Column
 	String parentSpanId;
