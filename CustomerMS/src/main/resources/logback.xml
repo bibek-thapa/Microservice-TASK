@@ -140,10 +140,10 @@
 		<appender-ref ref="SevereRollingFile" />
 	</logger>
 	
-	<root level="debug">
-	<appender-ref ref="Console"/>
+<!-- 	<root level="debug"> -->
+<!-- 	<appender-ref ref="Console"/> -->
 	
-	</root>
+<!-- 	</root> -->
 
 
 </configuration>

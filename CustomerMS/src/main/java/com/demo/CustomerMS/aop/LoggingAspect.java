@@ -59,6 +59,7 @@ public class LoggingAspect {
 		retVal = joinPoint.proceed();
 		MDC.put("response",retVal.toString());
 		logger.info("Exiting  class {}  with method {} and argument{}",className, methodName,joinPoint.getArgs());
+		MDC.clear();
 		return retVal;
 		
 	}
