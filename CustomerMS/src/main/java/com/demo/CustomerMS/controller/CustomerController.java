@@ -35,14 +35,14 @@ public class CustomerController {
 
     @HystrixCommand(fallbackMethod = "getCustomerFallback")
 	@GetMapping("/{id}")
-	public ResponseEntity<Customer> getById(@PathVariable("id")Long id) 
+	public Customer getById(@PathVariable("id")Long id) 
 	{
 		
 		logger.info("In Profile");
 	
 		Customer c = customerService.getById(id)
 				.orElseThrow(() -> new NoResourceFoundException("Customer with id " + id + " not found."));
-		return ResponseEntity.ok(c);
+		return c;
 		
 	}
 	
@@ -58,15 +58,12 @@ public class CustomerController {
 	}
 	
 	
-	public ResponseEntity<Customer> getCustomerFallback(Long id) 
+	public Customer getCustomerFallback(Long id) 
 	{
 		
 		logger.error("In fallback method when accessing id :"+ id);
-		logger.info("In Fallback");
-		//throw new NoResourceFoundException("Customer with id " + id + " not found." );
-		Customer c = customerService.getById(id)
-				.orElseThrow(() -> new NoResourceFoundException("Customer with id " + id + " not found."));
-		return ResponseEntity.ok(c);
+		return new Customer();
+		
 		
 	}
 }
