@@ -1,5 +1,7 @@
 package com.demo.CustomerMS.serviceimpl;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +22,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer add(Customer customer) {
-		
-		if(customerRepository.findByEmail(customer.getEmail())==null) 
-		{
-			return customerRepository.saveAndFlush(customer);
-		}
-		else 
-		{
-			logger.error("Customer with {}"+ customer.getEmail()+ " already exists in the system");
-			throw new DuplicateResourceException("Customer with " + customer.getEmail() + " already exists in the system");
-		}
-		
+		return customerRepository.saveAndFlush(customer);
 	}
 
 	@Override
@@ -46,12 +38,13 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public Customer getById(Long id) {
-		return customerRepository.findById(id).orElseThrow(()->
-		{
-			logger.error("Customer with id  "+ id +" is not found");
-			return new NoResourceFoundException("Customer with id : "+ id + " is not found");
-		});
+	public Optional<Customer> getById(Long id) {
+		return customerRepository.findById(id);
+	}
+
+	@Override
+	public Optional<Customer> findByEmail(String email) {
+		return customerRepository.findByEmail(email);
 	}
 
 }

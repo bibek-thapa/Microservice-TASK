@@ -41,5 +41,18 @@ public class ExceptionControllerAdvice {
 		return new ResponseEntity<ErrorMessage>(error,HttpStatus.CONFLICT);
 		
 	}
+	
+	@ExceptionHandler(value=IllegalArgumentException.class)
+	public ResponseEntity<ErrorMessage> handleIllegalArgumentException(IllegalArgumentException ex)
+	{
+		
+		ErrorMessage error = new ErrorMessage("Customer not found", ex.getMessage());
+		error.setTimestamp(LocalDateTime.now());
+		error.setStatus(HttpStatus.BAD_REQUEST.value());
+		return new ResponseEntity<ErrorMessage>(error,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	
 
 }

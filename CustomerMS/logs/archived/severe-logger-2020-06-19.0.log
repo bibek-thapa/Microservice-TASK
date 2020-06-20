@@ -1,0 +1,8 @@
+{"@timestamp":"2020-06-19T05:00:32.155Z","level":"ERROR","message":"Customer with id  2 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:00:32.165Z","level":"ERROR","message":"Customer with id  3 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:02:53.258Z","level":"ERROR","message":"Customer with id  2 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:02:53.267Z","level":"ERROR","message":"Customer with id  3 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:04:45.011Z","level":"ERROR","message":"Customer with id  2 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:04:45.026Z","level":"ERROR","message":"Customer with id  3 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:04:48.732Z","level":"ERROR","message":"Customer with id  2 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}
+{"@timestamp":"2020-06-19T05:04:48.747Z","level":"ERROR","message":"Customer with id  3 is not found","logger_name":"com.demo.CustomerMS.serviceimpl.CustomerServiceImpl","thread_name":"main"}

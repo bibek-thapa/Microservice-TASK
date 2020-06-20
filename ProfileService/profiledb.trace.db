@@ -4642,3 +4642,4562 @@ WHERE (TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11))
 2020-06-17 22:36:55 lock: 1 shared read lock unlock SYS 
 2020-06-17 22:36:55 lock: 2 shared read lock unlock SYS 
 2020-06-17 22:36:55 database: closed
+2020-06-20 04:47:15 jdbc[13]: 
+/**/Connection conn10 = DriverManager.getConnection("jdbc:h2:file:./profiledb;TRACE_LEVEL_FILE=3;FORBID_CREATION=TRUE", "SA", "");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/DatabaseMetaData dbMeta3 = conn10.getMetaData();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep12 = conn10.prepareStatement("SELECT NAME, VALUE FROM INFORMATION_SCHEMA.SETTINGS WHERE NAME IN (?, ?, ?, ?)");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SETTINGS:-7:org.h2.table.MetaTable@27edcbd3]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SETTINGS:-7:org.h2.table.MetaTable@27edcbd3
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 9,900 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 9,901
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep12.setString(1, "MODE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep12.setString(2, "DATABASE_TO_UPPER");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep12.setString(3, "DATABASE_TO_LOWER");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep12.setString(4, "CASE_INSENSITIVE_IDENTIFIERS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs15 = prep12.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:78 #:4*/SELECT NAME, VALUE FROM INFORMATION_SCHEMA.SETTINGS WHERE NAME IN (?, ?, ?, ?) {1: 'MODE', 2: 'DATABASE_TO_UPPER', 3: 'DATABASE_TO_LOWER', 4: 'CASE_INSENSITIVE_IDENTIFIERS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(2);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(1);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(2);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(1);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(2);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(1);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(2);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.getString(1);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs15.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep12.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/DatabaseMetaData dbMeta4 = conn10.getMetaData();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getSchemas();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep13 = conn10.prepareStatement("SELECT SCHEMA_NAME TABLE_SCHEM, CATALOG_NAME TABLE_CATALOG,  IS_DEFAULT FROM INFORMATION_SCHEMA.SCHEMATA ORDER BY SCHEMA_NAME");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SCHEMATA:-14:org.h2.table.MetaTable@44b008f1]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SCHEMATA:-14:org.h2.table.MetaTable@44b008f1
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 10,001
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs16 = prep13.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL #:2*/SELECT SCHEMA_NAME TABLE_SCHEM, CATALOG_NAME TABLE_CATALOG,  IS_DEFAULT FROM INFORMATION_SCHEMA.SCHEMATA ORDER BY SCHEMA_NAME;
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.findColumn("IS_DEFAULT");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.getBoolean(3);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.getBoolean(3);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.getString("TABLE_SCHEM");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs16.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getSchemas();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep14 = conn10.prepareStatement("SELECT SCHEMA_NAME TABLE_SCHEM, CATALOG_NAME TABLE_CATALOG,  IS_DEFAULT FROM INFORMATION_SCHEMA.SCHEMATA ORDER BY SCHEMA_NAME");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SCHEMATA:-14:org.h2.table.MetaTable@44b008f1]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SCHEMATA:-14:org.h2.table.MetaTable@44b008f1
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 10,001
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs17 = prep14.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL #:2*/SELECT SCHEMA_NAME TABLE_SCHEM, CATALOG_NAME TABLE_CATALOG,  IS_DEFAULT FROM INFORMATION_SCHEMA.SCHEMATA ORDER BY SCHEMA_NAME;
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.getString("TABLE_SCHEM");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.getString("TABLE_SCHEM");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs17.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep14.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getTables(null, "INFORMATION_SCHEMA", null, new String[]{"TABLE", "SYSTEM TABLE", "VIEW", "SYSTEM VIEW", "TABLE LINK", "SYNONYM", "EXTERNAL"});
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep15 = conn10.prepareStatement("SELECT TABLE_CAT, TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_CAT, TYPE_SCHEM, TYPE_NAME, SELF_REFERENCING_COL_NAME, REF_GENERATION, SQL FROM (SELECT SYNONYM_CATALOG TABLE_CAT, SYNONYM_SCHEMA TABLE_SCHEM, SYNONYM_NAME as TABLE_NAME, TYPE_NAME AS TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME AS TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, NULL AS SQL FROM INFORMATION_SCHEMA.SYNONYMS WHERE SYNONYM_CATALOG LIKE ?1 ESCAPE ?4 AND SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4 AND SYNONYM_NAME LIKE ?3 ESCAPE ?4 UNION SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11)) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [_0]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter _0
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 8,005.78 index (SELECT
+    SYNONYM_CATALOG AS TABLE_CAT,
+    SYNONYM_SCHEMA AS TABLE_SCHEM,
+    SYNONYM_NAME AS TABLE_NAME,
+    TYPE_NAME AS TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME AS TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    NULL AS SQL
+FROM INFORMATION_SCHEMA.SYNONYMS
+    /* meta */
+WHERE (SYNONYM_NAME LIKE ?3 ESCAPE ?4)
+    AND ((SYNONYM_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4)))
+UNION
+(SELECT
+    TABLE_CATALOG AS TABLE_CAT,
+    TABLE_SCHEMA AS TABLE_SCHEM,
+    TABLE_NAME,
+    TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    SQL
+FROM INFORMATION_SCHEMA.TABLES
+    /* meta */
+WHERE (TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11))
+    AND ((TABLE_NAME LIKE ?3 ESCAPE ?4)
+    AND ((TABLE_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (TABLE_SCHEMA LIKE ?2 ESCAPE ?4))))
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 8,006.78
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(1, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(2, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(3, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(4, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(5, "TABLE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(6, "SYSTEM TABLE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(7, "VIEW");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(8, "SYSTEM VIEW");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(9, "TABLE LINK");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(10, "SYNONYM");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.setString(11, "EXTERNAL");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs18 = prep15.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [_1]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter _1
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 8,005.78 index (SELECT
+    SYNONYM_CATALOG AS TABLE_CAT,
+    SYNONYM_SCHEMA AS TABLE_SCHEM,
+    SYNONYM_NAME AS TABLE_NAME,
+    TYPE_NAME AS TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME AS TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    NULL AS SQL
+FROM INFORMATION_SCHEMA.SYNONYMS
+    /* meta */
+WHERE (SYNONYM_NAME LIKE ?3 ESCAPE ?4)
+    AND ((SYNONYM_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4)))
+UNION
+(SELECT
+    TABLE_CATALOG AS TABLE_CAT,
+    TABLE_SCHEMA AS TABLE_SCHEM,
+    TABLE_NAME,
+    TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    SQL
+FROM INFORMATION_SCHEMA.TABLES
+    /* meta */
+WHERE (TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11))
+    AND ((TABLE_NAME LIKE ?3 ESCAPE ?4)
+    AND ((TABLE_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (TABLE_SCHEMA LIKE ?2 ESCAPE ?4))))
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 8,006.78
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:1007 #:33 t:2*/SELECT TABLE_CAT, TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_CAT, TYPE_SCHEM, TYPE_NAME, SELF_REFERENCING_COL_NAME, REF_GENERATION, SQL FROM (SELECT SYNONYM_CATALOG TABLE_CAT, SYNONYM_SCHEMA TABLE_SCHEM, SYNONYM_NAME as TABLE_NAME, TYPE_NAME AS TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME AS TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, NULL AS SQL FROM INFORMATION_SCHEMA.SYNONYMS WHERE SYNONYM_CATALOG LIKE ?1 ESCAPE ?4 AND SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4 AND SYNONYM_NAME LIKE ?3 ESCAPE ?4 UNION SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11)) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME {1: '%', 2: 'INFORMATION_SCHEMA', 3: '%', 4: '\\', 5: 'TABLE', 6: 'SYSTEM TABLE', 7: 'VIEW', 8: 'SYSTEM VIEW', 9: 'TABLE LINK', 10: 'SYNONYM', 11: 'EXTERNAL'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs18.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep15.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getConnection();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep16 = conn10.prepareStatement("SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [COLUMNS:-2:org.h2.table.MetaTable@4f13f387]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter COLUMNS:-2:org.h2.table.MetaTable@4f13f387
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 28 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 27.44 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 28.44
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "CATALOGS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs19 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:1*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'CATALOGS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs19.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "COLLATIONS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs20 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:2*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'COLLATIONS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs20.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "COLUMNS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs21 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:32*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'COLUMNS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs21.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "COLUMN_PRIVILEGES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs22 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:8*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'COLUMN_PRIVILEGES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs22.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "CONSTANTS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs23 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:7*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'CONSTANTS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs23.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "CONSTRAINTS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs24 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:13*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'CONSTRAINTS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs24.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "CROSS_REFERENCES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs25 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:14*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'CROSS_REFERENCES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs25.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "DOMAINS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs26 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:14*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'DOMAINS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs26.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "FUNCTION_ALIASES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs27 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:12*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'FUNCTION_ALIASES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs27.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "FUNCTION_COLUMNS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs28 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:17 t:6*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'FUNCTION_COLUMNS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs28.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "HELP");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs29 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:5*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'HELP'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs29.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "INDEXES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs30 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:22*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'INDEXES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs30.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "IN_DOUBT");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs31 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:2*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'IN_DOUBT'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs31.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "KEY_COLUMN_USAGE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs32 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:9*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'KEY_COLUMN_USAGE'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs32.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "LOCKS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs33 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:4*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'LOCKS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs33.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "QUERY_STATISTICS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs34 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:12*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'QUERY_STATISTICS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs34.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "REFERENTIAL_CONSTRAINTS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs35 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:9*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'REFERENTIAL_CONSTRAINTS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs35.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "RIGHTS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs36 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:7*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'RIGHTS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs36.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "ROLES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs37 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:3*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'ROLES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs37.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SCHEMATA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs38 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:8*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SCHEMATA'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs38.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SEQUENCES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs39 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:12*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SEQUENCES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs39.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SESSIONS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs40 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:12*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SESSIONS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs40.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SESSION_STATE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs41 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:2*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SESSION_STATE'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs41.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SETTINGS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs42 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:2*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SETTINGS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs42.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "SYNONYMS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs43 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:9*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'SYNONYMS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs43.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TABLES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs44 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:12*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TABLES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs44.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TABLE_CONSTRAINTS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs45 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:9*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TABLE_CONSTRAINTS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs45.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TABLE_PRIVILEGES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs46 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:7*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TABLE_PRIVILEGES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs46.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TABLE_TYPES");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs47 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:1*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TABLE_TYPES'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs47.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TRIGGERS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs48 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:14*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TRIGGERS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs48.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "TYPE_INFO");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs49 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:14*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'TYPE_INFO'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs49.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "USERS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs50 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:4*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'USERS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs50.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(1, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.setString(2, "VIEWS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs51 = prep16.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:9*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'INFORMATION_SCHEMA', 2: 'VIEWS'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs51.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep16.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getProcedures(null, "INFORMATION_SCHEMA", null);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep17 = conn10.prepareStatement("SELECT ALIAS_CATALOG PROCEDURE_CAT, ALIAS_SCHEMA PROCEDURE_SCHEM, ALIAS_NAME PROCEDURE_NAME, COLUMN_COUNT NUM_INPUT_PARAMS, ZERO() NUM_OUTPUT_PARAMS, ZERO() NUM_RESULT_SETS, REMARKS, RETURNS_RESULT PROCEDURE_TYPE, ALIAS_NAME SPECIFIC_NAME FROM INFORMATION_SCHEMA.FUNCTION_ALIASES WHERE ALIAS_CATALOG LIKE ? ESCAPE ? AND ALIAS_SCHEMA LIKE ? ESCAPE ? AND ALIAS_NAME LIKE ? ESCAPE ? ORDER BY PROCEDURE_SCHEM, PROCEDURE_NAME, NUM_INPUT_PARAMS");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 10,001
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(1, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(2, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(3, "INFORMATION_SCHEMA");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(4, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(5, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.setString(6, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs52 = prep17.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 9,800 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 9,801
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:438*/SELECT ALIAS_CATALOG PROCEDURE_CAT, ALIAS_SCHEMA PROCEDURE_SCHEM, ALIAS_NAME PROCEDURE_NAME, COLUMN_COUNT NUM_INPUT_PARAMS, ZERO() NUM_OUTPUT_PARAMS, ZERO() NUM_RESULT_SETS, REMARKS, RETURNS_RESULT PROCEDURE_TYPE, ALIAS_NAME SPECIFIC_NAME FROM INFORMATION_SCHEMA.FUNCTION_ALIASES WHERE ALIAS_CATALOG LIKE ? ESCAPE ? AND ALIAS_SCHEMA LIKE ? ESCAPE ? AND ALIAS_NAME LIKE ? ESCAPE ? ORDER BY PROCEDURE_SCHEM, PROCEDURE_NAME, NUM_INPUT_PARAMS {1: '%', 2: '\\', 3: 'INFORMATION_SCHEMA', 4: '\\', 5: '%', 6: '\\'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs52.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs52.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep17.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getTables(null, "PUBLIC", null, new String[]{"TABLE", "SYSTEM TABLE", "VIEW", "SYSTEM VIEW", "TABLE LINK", "SYNONYM", "EXTERNAL"});
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep18 = conn10.prepareStatement("SELECT TABLE_CAT, TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_CAT, TYPE_SCHEM, TYPE_NAME, SELF_REFERENCING_COL_NAME, REF_GENERATION, SQL FROM (SELECT SYNONYM_CATALOG TABLE_CAT, SYNONYM_SCHEMA TABLE_SCHEM, SYNONYM_NAME as TABLE_NAME, TYPE_NAME AS TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME AS TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, NULL AS SQL FROM INFORMATION_SCHEMA.SYNONYMS WHERE SYNONYM_CATALOG LIKE ?1 ESCAPE ?4 AND SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4 AND SYNONYM_NAME LIKE ?3 ESCAPE ?4 UNION SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11)) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(1, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(2, "PUBLIC");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(3, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(4, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(5, "TABLE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(6, "SYSTEM TABLE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(7, "VIEW");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(8, "SYSTEM VIEW");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(9, "TABLE LINK");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(10, "SYNONYM");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.setString(11, "EXTERNAL");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs53 = prep18.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [_2]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter _2
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SYNONYMS:-30:org.h2.table.MetaTable@6149f569]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SYNONYMS:-30:org.h2.table.MetaTable@6149f569
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 4,023
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 4,022 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 3,981.78 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 3,982.78
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 8,005.78 index (SELECT
+    SYNONYM_CATALOG AS TABLE_CAT,
+    SYNONYM_SCHEMA AS TABLE_SCHEM,
+    SYNONYM_NAME AS TABLE_NAME,
+    TYPE_NAME AS TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME AS TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    NULL AS SQL
+FROM INFORMATION_SCHEMA.SYNONYMS
+    /* meta */
+WHERE (SYNONYM_NAME LIKE ?3 ESCAPE ?4)
+    AND ((SYNONYM_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4)))
+UNION
+(SELECT
+    TABLE_CATALOG AS TABLE_CAT,
+    TABLE_SCHEMA AS TABLE_SCHEM,
+    TABLE_NAME,
+    TABLE_TYPE,
+    REMARKS,
+    TYPE_NAME AS TYPE_CAT,
+    TYPE_NAME AS TYPE_SCHEM,
+    TYPE_NAME,
+    TYPE_NAME AS SELF_REFERENCING_COL_NAME,
+    TYPE_NAME AS REF_GENERATION,
+    SQL
+FROM INFORMATION_SCHEMA.TABLES
+    /* meta */
+WHERE (TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11))
+    AND ((TABLE_NAME LIKE ?3 ESCAPE ?4)
+    AND ((TABLE_CATALOG LIKE ?1 ESCAPE ?4)
+    AND (TABLE_SCHEMA LIKE ?2 ESCAPE ?4))))
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 8,006.78
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:1007 #:1*/SELECT TABLE_CAT, TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_CAT, TYPE_SCHEM, TYPE_NAME, SELF_REFERENCING_COL_NAME, REF_GENERATION, SQL FROM (SELECT SYNONYM_CATALOG TABLE_CAT, SYNONYM_SCHEMA TABLE_SCHEM, SYNONYM_NAME as TABLE_NAME, TYPE_NAME AS TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME AS TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, NULL AS SQL FROM INFORMATION_SCHEMA.SYNONYMS WHERE SYNONYM_CATALOG LIKE ?1 ESCAPE ?4 AND SYNONYM_SCHEMA LIKE ?2 ESCAPE ?4 AND SYNONYM_NAME LIKE ?3 ESCAPE ?4 UNION SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5, ?6, ?7, ?8, ?9, ?10, ?11)) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME {1: '%', 2: 'PUBLIC', 3: '%', 4: '\\', 5: 'TABLE', 6: 'SYSTEM TABLE', 7: 'VIEW', 8: 'SYSTEM VIEW', 9: 'TABLE LINK', 10: 'SYNONYM', 11: 'EXTERNAL'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs53.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs53.getString("TABLE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs53.getString("TABLE_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs53.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs53.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep18.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getConnection();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep19 = conn10.prepareStatement("SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep19.setString(1, "PUBLIC");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep19.setString(2, "LOG_TBL");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs54 = prep19.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:123 #:10*/SELECT COLUMN_NAME, ORDINAL_POSITION, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? {1: 'PUBLIC', 2: 'LOG_TBL'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getInt("ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.getString("COLUMN_TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs54.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep19.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta4.getProcedures(null, "PUBLIC", null);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep20 = conn10.prepareStatement("SELECT ALIAS_CATALOG PROCEDURE_CAT, ALIAS_SCHEMA PROCEDURE_SCHEM, ALIAS_NAME PROCEDURE_NAME, COLUMN_COUNT NUM_INPUT_PARAMS, ZERO() NUM_OUTPUT_PARAMS, ZERO() NUM_RESULT_SETS, REMARKS, RETURNS_RESULT PROCEDURE_TYPE, ALIAS_NAME SPECIFIC_NAME FROM INFORMATION_SCHEMA.FUNCTION_ALIASES WHERE ALIAS_CATALOG LIKE ? ESCAPE ? AND ALIAS_SCHEMA LIKE ? ESCAPE ? AND ALIAS_NAME LIKE ? ESCAPE ? ORDER BY PROCEDURE_SCHEM, PROCEDURE_NAME, NUM_INPUT_PARAMS");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(1, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(2, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(3, "PUBLIC");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(4, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(5, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.setString(6, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs55 = prep20.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter FUNCTION_ALIASES:-13:org.h2.table.MetaTable@16d476ec
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 9,900 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 9,901
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:438*/SELECT ALIAS_CATALOG PROCEDURE_CAT, ALIAS_SCHEMA PROCEDURE_SCHEM, ALIAS_NAME PROCEDURE_NAME, COLUMN_COUNT NUM_INPUT_PARAMS, ZERO() NUM_OUTPUT_PARAMS, ZERO() NUM_RESULT_SETS, REMARKS, RETURNS_RESULT PROCEDURE_TYPE, ALIAS_NAME SPECIFIC_NAME FROM INFORMATION_SCHEMA.FUNCTION_ALIASES WHERE ALIAS_CATALOG LIKE ? ESCAPE ? AND ALIAS_SCHEMA LIKE ? ESCAPE ? AND ALIAS_NAME LIKE ? ESCAPE ? ORDER BY PROCEDURE_SCHEM, PROCEDURE_NAME, NUM_INPUT_PARAMS {1: '%', 2: '\\', 3: 'PUBLIC', 4: '\\', 5: '%', 6: '\\'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs55.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs55.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep20.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta3.getIndexInfo(null, "PUBLIC", "LOG_TBL", false, true);
+2020-06-20 04:47:15 jdbc[13]: 
+/**/PreparedStatement prep21 = conn10.prepareStatement("SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, NON_UNIQUE, TABLE_CATALOG INDEX_QUALIFIER, INDEX_NAME, INDEX_TYPE TYPE, ORDINAL_POSITION, COLUMN_NAME, ASC_OR_DESC, CARDINALITY, PAGES, FILTER_CONDITION, SORT_TYPE FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND (TRUE) AND TABLE_NAME = ? ORDER BY NON_UNIQUE, TYPE, TABLE_SCHEM, INDEX_NAME, ORDINAL_POSITION");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 324.72 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 325.72
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.setString(1, "%");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.setString(2, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.setString(3, "PUBLIC");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.setString(4, "\\");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.setString(5, "LOG_TBL");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs56 = prep21.executeQuery();
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 321.44 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 322.44
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL l:433 #:1*/SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, NON_UNIQUE, TABLE_CATALOG INDEX_QUALIFIER, INDEX_NAME, INDEX_TYPE TYPE, ORDINAL_POSITION, COLUMN_NAME, ASC_OR_DESC, CARDINALITY, PAGES, FILTER_CONDITION, SORT_TYPE FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND (TRUE) AND TABLE_NAME = ? ORDER BY NON_UNIQUE, TYPE, TABLE_SCHEM, INDEX_NAME, ORDINAL_POSITION {1: '%', 2: '\\', 3: 'PUBLIC', 4: '\\', 5: 'LOG_TBL'};
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.getString("INDEX_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.getInt("TYPE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.getBoolean("NON_UNIQUE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.getString("COLUMN_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs56.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/prep21.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/Statement stat3 = conn10.createStatement();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs57 = stat3.executeQuery("SELECT * FROM INFORMATION_SCHEMA.SEQUENCES ORDER BY SEQUENCE_NAME");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [SEQUENCES:-9:org.h2.table.MetaTable@483b2baf]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter SEQUENCES:-9:org.h2.table.MetaTable@483b2baf
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 10,001
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL #:1*/SELECT * FROM INFORMATION_SCHEMA.SEQUENCES ORDER BY SEQUENCE_NAME;
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.getString("SEQUENCE_NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.getString("CURRENT_VALUE");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.getString("INCREMENT");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs57.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/ResultSet rs58 = stat3.executeQuery("SELECT * FROM INFORMATION_SCHEMA.USERS ORDER BY NAME");
+2020-06-20 04:47:15 jdbc[13]: Plan       : calculate cost for plan [USERS:-10:org.h2.table.MetaTable@47dbc94f]
+2020-06-20 04:47:15 jdbc[13]: Plan       :   for table filter USERS:-10:org.h2.table.MetaTable@47dbc94f
+2020-06-20 04:47:15 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       :   best plan item cost 10,000 index meta
+2020-06-20 04:47:15 jdbc[13]: Plan       : plan cost 10,001
+2020-06-20 04:47:15 jdbc[13]: 
+/*SQL #:1*/SELECT * FROM INFORMATION_SCHEMA.USERS ORDER BY NAME;
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs58.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs58.getString("NAME");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs58.getString("ADMIN");
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs58.next();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/rs58.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/stat3.close();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta3.getDatabaseProductName();
+2020-06-20 04:47:15 jdbc[13]: 
+/**/dbMeta3.getDatabaseProductVersion();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/Statement stat4 = conn10.createStatement(1004, 1008);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/stat4.setMaxRows(1000);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/stat4.execute("SELECT * FROM LOG_TBL");
+2020-06-20 04:47:19 jdbc[13]: Plan       : calculate cost for plan [PUBLIC.LOG_TBL]
+2020-06-20 04:47:19 jdbc[13]: Plan       :   for table filter PUBLIC.LOG_TBL
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,290 index PUBLIC.LOG_TBL.tableScan
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,300 index PUBLIC.PRIMARY_KEY_3
+2020-06-20 04:47:19 jdbc[13]: Plan       :   best plan item cost 10,290 index PUBLIC.LOG_TBL.tableScan
+2020-06-20 04:47:19 jdbc[13]: Plan       : plan cost 10,291
+2020-06-20 04:47:19 jdbc[13]: 
+/*SQL #:9*/SELECT * FROM LOG_TBL;
+2020-06-20 04:47:19 jdbc[13]: 
+/**/ResultSet rs59 = stat4.getResultSet();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/ResultSetMetaData rsMeta9 = rs59.getMetaData();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/conn10.getCatalog();
+2020-06-20 04:47:19 jdbc[13]: 
+/*SQL #:1*/CALL DATABASE();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnCount();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rsMeta9.getColumnLabel(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(1);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(2);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(3);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(4);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(5);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(6);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(7);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(8);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(9);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getString(10);
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getConcurrency();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/DatabaseMetaData dbMeta5 = conn10.getMetaData();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/dbMeta5.getTables(null, "PUBLIC", "LOG_TBL", new String[]{"TABLE"});
+2020-06-20 04:47:19 jdbc[13]: 
+/**/PreparedStatement prep22 = conn10.prepareStatement("SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME");
+2020-06-20 04:47:19 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:19 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 4,322 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       :   best plan item cost 4,278.78 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       : plan cost 4,279.78
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep22.setString(1, "%");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep22.setString(2, "PUBLIC");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep22.setString(3, "LOG_TBL");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep22.setString(4, "\\");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep22.setString(5, "TABLE");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/ResultSet rs60 = prep22.executeQuery();
+2020-06-20 04:47:19 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:19 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 1,324 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       :   best plan item cost 1,271.04 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       : plan cost 1,272.04
+2020-06-20 04:47:19 jdbc[13]: 
+/*SQL l:414 #:1*/SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME {1: '%', 2: 'PUBLIC', 3: 'LOG_TBL', 4: '\\', 5: 'TABLE'};
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs60.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs60.getString("SQL");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs60.getString("TABLE_NAME");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/dbMeta5.getPrimaryKeys(null, "PUBLIC", "LOG_TBL");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/PreparedStatement prep23 = conn10.prepareStatement("SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION KEY_SEQ, IFNULL(CONSTRAINT_NAME, INDEX_NAME) PK_NAME FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND TABLE_NAME = ? AND PRIMARY_KEY = TRUE ORDER BY COLUMN_NAME");
+2020-06-20 04:47:19 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:19 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       :   best plan item cost 321.44 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       : plan cost 322.44
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep23.setString(1, "%");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep23.setString(2, "\\");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep23.setString(3, "PUBLIC");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep23.setString(4, "\\");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/prep23.setString(5, "LOG_TBL");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/ResultSet rs61 = prep23.executeQuery();
+2020-06-20 04:47:19 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:19 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:19 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       :   best plan item cost 318.16 index meta
+2020-06-20 04:47:19 jdbc[13]: Plan       : plan cost 319.16
+2020-06-20 04:47:19 jdbc[13]: 
+/*SQL l:316 #:1*/SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION KEY_SEQ, IFNULL(CONSTRAINT_NAME, INDEX_NAME) PK_NAME FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND TABLE_NAME = ? AND PRIMARY_KEY = TRUE ORDER BY COLUMN_NAME {1: '%', 2: '\\', 3: 'PUBLIC', 4: '\\', 5: 'LOG_TBL'};
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs61.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs61.getString("COLUMN_NAME");
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs61.next();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.getType();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/rs59.close();
+2020-06-20 04:47:19 jdbc[13]: 
+/**/stat4.close();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.isValid(5);
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.getTransactionIsolation();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.getAutoCommit();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.setAutoCommit(false);
+2020-06-20 04:47:26 jdbc[3]: 
+/**/PreparedStatement prep24 = conn0.prepareStatement("insert into log_tbl (id, application_name, level, message, parent_span_id, request, response, span_id, time, trace_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 1);;
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(1, "ProfileService");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(2, "INFO");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(3, "Exiting  class ProfileController  with method getProfile and argument[3]");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setNull(4, 12);
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(5, "/api/profiles/3");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(6, "ProfileDTO(customer=CustomerDTO(id=3, firstName=Ramila, lastName=Karki, email=ramila@gmail.com), equimpment=[])");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(7, "bb957b9011790f64");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(8, "2020-06-20T09:47:25.662Z");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.setString(9, "bb957b9011790f64");
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.executeUpdate();
+2020-06-20 04:47:26 lock: 3 shared read lock requesting for LOG_TBL 
+2020-06-20 04:47:26 lock: 3 shared read lock ok LOG_TBL 
+2020-06-20 04:47:26 jdbc[3]: 
+/*SQL l:159 #:1*/insert into log_tbl (id, application_name, level, message, parent_span_id, request, response, span_id, time, trace_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) {1: 'ProfileService', 2: 'INFO', 3: 'Exiting  class ProfileController  with method getProfile and argument[3]', 4: NULL, 5: '/api/profiles/3', 6: 'ProfileDTO(customer=CustomerDTO(id=3, firstName=Ramila, lastName=Karki, email=ramila@gmail.com), equimpment=[])', 7: 'bb957b9011790f64', 8: '2020-06-20T09:47:25.662Z', 9: 'bb957b9011790f64'};
+2020-06-20 04:47:26 jdbc[3]: 
+/**/ResultSet rs62 = prep24.getGeneratedKeys();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/rs62.next();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/ResultSetMetaData rsMeta10 = rs62.getMetaData();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.getCatalog();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/rsMeta10.getColumnCount();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/rs62.getLong(1);
+2020-06-20 04:47:26 jdbc[3]: 
+/**/rs62.close();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.getMaxRows();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.getQueryTimeout();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/prep24.close();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.commit();
+2020-06-20 04:47:26 lock: 3 shared read lock unlock LOG_TBL 
+2020-06-20 04:47:26 jdbc[3]: 
+/*SQL */COMMIT;
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.setAutoCommit(true);
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.commit();
+2020-06-20 04:47:26 jdbc[3]: 
+/*SQL */COMMIT;
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.getWarnings();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.clearWarnings();
+2020-06-20 04:47:26 jdbc[3]: 
+/**/conn0.clearWarnings();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/Statement stat5 = conn10.createStatement(1004, 1008);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/stat5.setMaxRows(1000);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/stat5.execute("SELECT * FROM LOG_TBL");
+2020-06-20 04:47:29 jdbc[13]: 
+/*SQL #:10*/SELECT * FROM LOG_TBL;
+2020-06-20 04:47:29 jdbc[13]: 
+/**/ResultSet rs63 = stat5.getResultSet();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/ResultSetMetaData rsMeta11 = rs63.getMetaData();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/conn10.getCatalog();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnCount();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rsMeta11.getColumnLabel(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(1);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(2);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(3);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(4);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(5);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(6);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(7);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(8);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(9);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getString(10);
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getConcurrency();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/DatabaseMetaData dbMeta6 = conn10.getMetaData();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/dbMeta6.getTables(null, "PUBLIC", "LOG_TBL", new String[]{"TABLE"});
+2020-06-20 04:47:29 jdbc[13]: 
+/**/PreparedStatement prep25 = conn10.prepareStatement("SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME");
+2020-06-20 04:47:29 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:29 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 4,322 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       :   best plan item cost 4,278.78 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       : plan cost 4,279.78
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep25.setString(1, "%");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep25.setString(2, "PUBLIC");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep25.setString(3, "LOG_TBL");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep25.setString(4, "\\");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep25.setString(5, "TABLE");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/ResultSet rs64 = prep25.executeQuery();
+2020-06-20 04:47:29 jdbc[13]: Plan       : calculate cost for plan [TABLES:-1:org.h2.table.MetaTable@21983aa5]
+2020-06-20 04:47:29 jdbc[13]: Plan       :   for table filter TABLES:-1:org.h2.table.MetaTable@21983aa5
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 1,324 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       :   best plan item cost 1,271.04 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       : plan cost 1,272.04
+2020-06-20 04:47:29 jdbc[13]: 
+/*SQL l:414 #:1*/SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, TABLE_TYPE, REMARKS, TYPE_NAME TYPE_CAT, TYPE_NAME TYPE_SCHEM, TYPE_NAME, TYPE_NAME SELF_REFERENCING_COL_NAME, TYPE_NAME REF_GENERATION, SQL FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG LIKE ?1 ESCAPE ?4 AND TABLE_SCHEMA LIKE ?2 ESCAPE ?4 AND TABLE_NAME LIKE ?3 ESCAPE ?4 AND TABLE_TYPE IN(?5) ORDER BY TABLE_TYPE, TABLE_SCHEM, TABLE_NAME {1: '%', 2: 'PUBLIC', 3: 'LOG_TBL', 4: '\\', 5: 'TABLE'};
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs64.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs64.getString("SQL");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs64.getString("TABLE_NAME");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/dbMeta6.getPrimaryKeys(null, "PUBLIC", "LOG_TBL");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/PreparedStatement prep26 = conn10.prepareStatement("SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION KEY_SEQ, IFNULL(CONSTRAINT_NAME, INDEX_NAME) PK_NAME FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND TABLE_NAME = ? AND PRIMARY_KEY = TRUE ORDER BY COLUMN_NAME");
+2020-06-20 04:47:29 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:29 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       :   best plan item cost 321.44 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       : plan cost 322.44
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep26.setString(1, "%");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep26.setString(2, "\\");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep26.setString(3, "PUBLIC");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep26.setString(4, "\\");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/prep26.setString(5, "LOG_TBL");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/ResultSet rs65 = prep26.executeQuery();
+2020-06-20 04:47:29 jdbc[13]: Plan       : calculate cost for plan [INDEXES:-3:org.h2.table.MetaTable@43183880]
+2020-06-20 04:47:29 jdbc[13]: Plan       :   for table filter INDEXES:-3:org.h2.table.MetaTable@43183880
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 10,000 index meta
+2020-06-20 04:47:29 jdbc[13]: Table      :     potential plan item cost 328 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       :   best plan item cost 318.16 index meta
+2020-06-20 04:47:29 jdbc[13]: Plan       : plan cost 319.16
+2020-06-20 04:47:29 jdbc[13]: 
+/*SQL l:316 #:1*/SELECT TABLE_CATALOG TABLE_CAT, TABLE_SCHEMA TABLE_SCHEM, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION KEY_SEQ, IFNULL(CONSTRAINT_NAME, INDEX_NAME) PK_NAME FROM INFORMATION_SCHEMA.INDEXES WHERE TABLE_CATALOG LIKE ? ESCAPE ? AND TABLE_SCHEMA LIKE ? ESCAPE ? AND TABLE_NAME = ? AND PRIMARY_KEY = TRUE ORDER BY COLUMN_NAME {1: '%', 2: '\\', 3: 'PUBLIC', 4: '\\', 5: 'LOG_TBL'};
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs65.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs65.getString("COLUMN_NAME");
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs65.next();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.getType();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/rs63.close();
+2020-06-20 04:47:29 jdbc[13]: 
+/**/stat5.close();
+2020-06-20 04:48:39 jdbc[13]: 
+/**/conn10.close();
+2020-06-20 04:48:39 lock: 13 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #13
+2020-06-20 04:48:39 database: disconnected session #13
+2020-06-20 04:48:39 jdbc[3]: 
+/**/conn0.isValid(5);
+2020-06-20 04:48:39 jdbc[3]: 
+/**/conn0.getTransactionIsolation();
+2020-06-20 04:48:39 jdbc[3]: 
+/**/conn0.getAutoCommit();
+2020-06-20 04:48:39 jdbc[3]: 
+/**/Statement stat6 = conn0.createStatement();
+2020-06-20 04:48:39 jdbc[3]: 
+/**/stat6.execute("drop table if exists log_tbl CASCADE ");
+2020-06-20 04:48:39 lock: 3 exclusive write lock requesting for LOG_TBL 
+2020-06-20 04:48:39 lock: 3 exclusive write lock added for LOG_TBL 
+2020-06-20 04:48:39 lock: 3 exclusive write lock requesting for SYS 
+2020-06-20 04:48:39 lock: 3 exclusive write lock added for SYS 
+2020-06-20 04:48:39 jdbc[3]: 
+/*SQL t:2*/drop table if exists log_tbl CASCADE;
+2020-06-20 04:48:39 lock: 3 exclusive write lock unlock SYS 
+2020-06-20 04:48:39 jdbc[3]: 
+/**/stat6.getWarnings();
+2020-06-20 04:48:39 jdbc[3]: 
+/**/stat6.close();
+2020-06-20 04:48:39 jdbc[3]: 
+/**/conn0.clearWarnings();
+2020-06-20 04:48:39 database: closing /Users/bek/Documents/workspace-spring-tool-suite-4-4.6.2.RELEASE/Microservice-TASK/ProfileService/profiledb from shutdown hook
+2020-06-20 04:48:39 lock: 3 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #3
+2020-06-20 04:48:39 database: disconnected session #3
+2020-06-20 04:48:39 lock: 4 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #4
+2020-06-20 04:48:39 database: disconnected session #4
+2020-06-20 04:48:39 lock: 5 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #5
+2020-06-20 04:48:39 database: disconnected session #5
+2020-06-20 04:48:39 lock: 6 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #6
+2020-06-20 04:48:39 jdbc[3]: 
+/**/conn0.close();
+2020-06-20 04:48:39 database: disconnected session #6
+2020-06-20 04:48:39 jdbc[4]: 
+/**/conn1.close();
+2020-06-20 04:48:39 lock: 7 shared read lock unlock SYS 
+2020-06-20 04:48:39 jdbc[5]: 
+/**/conn2.close();
+2020-06-20 04:48:39 database: disconnecting session #7
+2020-06-20 04:48:39 jdbc[6]: 
+/**/conn3.close();
+2020-06-20 04:48:39 database: disconnected session #7
+2020-06-20 04:48:39 jdbc[7]: 
+/**/conn4.close();
+2020-06-20 04:48:39 lock: 8 shared read lock unlock SYS 
+2020-06-20 04:48:39 jdbc[8]: 
+/**/conn5.close();
+2020-06-20 04:48:39 database: disconnecting session #8
+2020-06-20 04:48:39 jdbc[9]: 
+/**/conn6.close();
+2020-06-20 04:48:39 database: disconnected session #8
+2020-06-20 04:48:39 lock: 9 shared read lock unlock SYS 
+2020-06-20 04:48:39 lock: 10 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #10
+2020-06-20 04:48:39 database: disconnected session #10
+2020-06-20 04:48:39 lock: 11 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #11
+2020-06-20 04:48:39 database: disconnected session #11
+2020-06-20 04:48:39 lock: 12 shared read lock unlock SYS 
+2020-06-20 04:48:39 database: disconnecting session #12
+2020-06-20 04:48:39 database: disconnected session #12
+2020-06-20 04:48:39 database: disconnecting session #9
+2020-06-20 04:48:39 database: disconnected session #9
+2020-06-20 04:48:39 jdbc[10]: 
+/**/conn7.close();
+2020-06-20 04:48:39 jdbc[11]: 
+/**/conn8.close();
+2020-06-20 04:48:39 jdbc[12]: 
+/**/conn9.close();
+2020-06-20 04:48:40 database: closing /Users/bek/Documents/workspace-spring-tool-suite-4-4.6.2.RELEASE/Microservice-TASK/ProfileService/profiledb
+2020-06-20 04:48:40 lock: 1 shared read lock unlock SYS 
+2020-06-20 04:48:40 lock: 2 shared read lock unlock SYS 
+2020-06-20 04:48:40 database: closed

@@ -127,6 +127,7 @@ public class Producer {
 		rec.setLevel((String) obj.get("level"));
 		rec.setRequest((String) obj.get("request"));
 		rec.setResponse((String) obj.get("response"));
+		rec.setMessage((String)obj.get("message"));
 
 		return rec.toString();
 
@@ -142,7 +143,7 @@ public class Producer {
 		rec.setLevel((String) obj.get("level"));
 		rec.setRequest((String) obj.get("request"));
 		rec.setResponse((String) obj.get("response"));
-
+		rec.setMessage((String)obj.get("message"));
 		return rec;
 
 	}

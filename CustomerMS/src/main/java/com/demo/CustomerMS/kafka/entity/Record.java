@@ -45,6 +45,9 @@ public class Record {
 	@Column
 	String level;
 	
+	@Column
+	String message;
+	
 	
 	
 }

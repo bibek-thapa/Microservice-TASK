@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class ProfileController {
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
+	@Autowired
+	RestTemplate template;
 	
 	@HystrixCommand(fallbackMethod="getProfileFallback")
 	@GetMapping("{customerId}")
@@ -29,13 +32,12 @@ public class ProfileController {
 	{
 		
 		ProfileDTO profileDTO = new ProfileDTO();
-		RestTemplate template = new RestTemplate();
 		
 		
-		CustomerDTO customerDTO = template.getForObject("http://localhost:8082/api/customers/"+ customerId, CustomerDTO.class);
+		CustomerDTO customerDTO = template.getForObject("http://CustomerMS/api/customers/"+ customerId, CustomerDTO.class);
 		profileDTO.setCustomer(customerDTO);
 
-		List<EquipmentDTO> equipmentDTO = (List<EquipmentDTO>)template.getForObject("http://localhost:8083/api/equipments/"+ customerId, List.class);
+		List<EquipmentDTO> equipmentDTO = (List<EquipmentDTO>)template.getForObject("http://EquipmentMS/api/equipments/"+ customerId, List.class);
 		profileDTO.setEquimpment(equipmentDTO);
 		
 		return profileDTO;
